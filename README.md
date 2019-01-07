@@ -1,5 +1,3 @@
-Deep Reinforcement Learning Bejeweled using Tensorflow
-
 Environment
 ============
 

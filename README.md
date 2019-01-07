@@ -2,7 +2,7 @@ Environment
 ============
 
 * Python 3.6.4
-* Tensorflow1.7.1
+* Tensorflow 1.7.1
 * OpenCV
 * PyGame
 

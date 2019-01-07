@@ -8,8 +8,8 @@ from pprint import pformat, pprint
 import pygame
 from pygame.locals import *
 
-from pybrain.utilities import Named
-from pybrain.rl.environments.environment import Environment
+#from pybrain.utilities import Named
+#from pybrain.rl.environments.environment import Environment
 
 # TODO: mazes can have any number of dimensions?
 
@@ -66,7 +66,7 @@ DOWN = 'down'
 LEFT = 'left'
 RIGHT = 'right'
 
-class BejeweledBoard(Environment, Named):
+class BejeweledBoard():
 
     board = None
     score = 0
@@ -113,7 +113,7 @@ class BejeweledBoard(Environment, Named):
         GUI_WIDTH = 88 + GEMIMAGESIZE * BOARDWIDTH
         GUI_HEIGHT = 88 + GEMIMAGESIZE * BOARDWIDTH
 
-        self.setArgs(**args)
+        #self.setArgs(**args)
         self.main()
         self.reset()
 
@@ -169,10 +169,10 @@ class BejeweledBoard(Environment, Named):
     def performAction(self, action):
         movePos = self._canMakeMove(self.board)
 
-        optiMoves, optiValue = self._findOptimalMoves(self.board)
+        #optiMoves, optiValue = self._findOptimalMoves(self.board)
         
         scoreAdd = 0
-        action = self._actionIndexToSwapTuple(action)
+        #action = self._actionIndexToSwapTuple(action)
         #print 'optiMove', optiMoves, 'worth', optiValue, 'action', action, 'same?', list([action[0], action[1]]) in optiMoves
         firstSelectedGem = {'x': action[0][0], 'y': action[0][1]}
         clickedSpace = {'x': action[1][0], 'y': action[1][1]}
@@ -180,7 +180,7 @@ class BejeweledBoard(Environment, Named):
         firstSwappingGem, secondSwappingGem = self._getSwappingGems(self.board, firstSelectedGem, clickedSpace)
         if firstSwappingGem == None and secondSwappingGem == None:
             # If both are None, then the gems were not adjacent
-            print 'gems not adjacent'
+            print ('gems not adjacent')
             firstSelectedGem = None # deselect the first gem
             self.lastReward = -10
             return 0
@@ -257,11 +257,11 @@ class BejeweledBoard(Environment, Named):
             pos += 1
             if scoreAdd > 0:
                 got += 1
-                if list([action[0], action[1]]) in optiMoves:
-                    opti += 1
-                print 'found match:', got, '/', pos, '=', \
-                      float(got) / pos, 'found optimal:', \
-                      opti, '/', pos, '=', float(opti) / pos
+                #if list([action[0], action[1]]) in optiMoves:
+                #    opti += 1
+                #print 'found match:', got, '/', pos, '=', \
+                #      float(got) / pos, 'found optimal:', \
+                #      opti, '/', pos, '=', float(opti) / pos
 
         if not self._canMakeMove(self.board):
             #print 'game ended, no more moves available'

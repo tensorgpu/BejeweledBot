@@ -21,7 +21,7 @@ TO DO
 1. Improve the deep learning result
 2. Improve the utilisation rate of GPU
 3. Enable the change of board size in GUI mode
-4. Revamp the code, all the tensorflow logic was copied from https://github.com/switchball/AI-For-Bejeweled which will take the screenshoot from Bejeweled game. Those codes are no longer in use.
+4. Revamp the code, all the tensorflow logic was copied from https://github.com/switchball/AI-For-Bejeweled which will take the screenshoot from Bejeweled game. Those code is no longer in use.
 5. Eliminate the need of feeding icon image array into the tensorflow
 6. Create a play script that will play the trained model
 7. Put those flags e.g  (demo = True) into the command arguement
